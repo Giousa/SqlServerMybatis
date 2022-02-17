@@ -39,4 +39,12 @@ public class UserInfoControllerTest extends BaseTest{
         idReq.setId(3L);
         controller.getById(idReq);
     }
+
+    @Test
+    public void queryListTest(){
+        System.out.println("准备查询数据....");
+        UserInfoDO userInfoDO = new UserInfoDO();
+        userInfoDO.setBStatus(0);
+        controller.queryList(userInfoDO);
+    }
 }

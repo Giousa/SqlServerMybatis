@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @RequestMapping("userInfoApi")
@@ -35,7 +36,14 @@ public class UserInfoController {
     @PostMapping("getById")
     public void getById(@RequestBody IdReq idReq) {
         UserInfoDO userInfoDO = userInfoMapper.getById(idReq.getId());
-        System.out.println("getById userInfoDO = "+ JSON.toJSONString(userInfoDO));
+        System.out.println("getById userInfoDO = " + JSON.toJSONString(userInfoDO));
+    }
+
+    @PostMapping("queryList")
+    public void queryList(@RequestBody UserInfoDO userInfoDO) {
+        List<UserInfoDO> userInfoDOS = userInfoMapper.queryList(userInfoDO);
+        System.out.println("queryList OK");
+        System.out.println(JSON.toJSONString(userInfoDOS));
     }
 
 }

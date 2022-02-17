@@ -53,21 +53,35 @@
         </set>
         where id = #{id}
     </update>
-    <!--    <insert id="insert" useGeneratedKeys="true" keyProperty="id"-->
-    <!--            parameterType="com.giousa.sqlservermybatis.core.model.UserInfoDO">-->
-    <!--        insert into t_baby (name,b_status) values (#{name},#{bStatus})-->
-    <!--     </insert>-->
 
-<!--    <select id="getById" resultMap="ResultMap">-->
-<!--        SELECT *-->
-<!--        FROM t_baby-->
-<!--        WHERE id = #{id}-->
-<!--    </select>-->
     <select id="getById" resultMap="ResultMap">
         SELECT
         <include refid="Base_Column_List" />
         FROM t_baby
         WHERE id = #{id}
     </select>
+
+
+    <sql id="Page_Query">
+        <where>
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+            <if test="name != null">
+                AND name = #{name}
+            </if>
+            <if test="bStatus != null">
+                AND b_status = #{bStatus}
+            </if>
+        </where>
+    </sql>
+    <select id="queryList" resultMap="ResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_baby
+        <include refid="Page_Query"/>
+        ORDER BY id DESC
+    </select>
+
 </mapper>
 
