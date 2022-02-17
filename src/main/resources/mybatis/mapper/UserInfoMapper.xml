@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.giousa.sqlservermybatis.core.mapper.UserInfoMapper">
+    <resultMap id="ResultMap" type="com.giousa.sqlservermybatis.core.model.UserInfoDO">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="b_status" property="bStatus"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,b_status
+    </sql>
+
+    <sql id="Set_Column">
+        <set>
+            <if test="id != null">`id`=#{id},</if>
+            <if test="name != null">`name`=#{name},</if>
+            <if test="bStatus != null">`b_status`=#{bStatus}</if>
+        </set>
+    </sql>
+
+    <sql id="Set_Column_Left">
+        <if test="id != null">id,</if>
+        <if test="name != null">name,</if>
+        <if test="bStatus != null">b_status</if>
+    </sql>
+    <sql id="Set_Column_Right">
+        <if test="id != null">#{id},</if>
+        <if test="name != null">#{name},</if>
+        <if test="bStatus != null">#{bStatus}</if>
+    </sql>
+
+    <sql id="Set_Column_All">
+        <if test="name != null">name=#{name},</if>
+        <if test="bStatus != null">b_status=#{bStatus}</if>
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id"
+            parameterType="com.giousa.sqlservermybatis.core.model.UserInfoDO">
+        insert into t_baby
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <include refid="Set_Column_Left"/>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <include refid="Set_Column_Right"/>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="com.giousa.sqlservermybatis.core.model.UserInfoDO">
+        update t_baby
+        <set>
+            <include refid="Set_Column_All"/>
+        </set>
+        where id = #{id}
+    </update>
+    <!--    <insert id="insert" useGeneratedKeys="true" keyProperty="id"-->
+    <!--            parameterType="com.giousa.sqlservermybatis.core.model.UserInfoDO">-->
+    <!--        insert into t_baby (name,b_status) values (#{name},#{bStatus})-->
+    <!--     </insert>-->
+
+<!--    <select id="getById" resultMap="ResultMap">-->
+<!--        SELECT *-->
+<!--        FROM t_baby-->
+<!--        WHERE id = #{id}-->
+<!--    </select>-->
+    <select id="getById" resultMap="ResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_baby
+        WHERE id = #{id}
+    </select>
+</mapper>
+

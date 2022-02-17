@@ -1,0 +1,20 @@
+#insert
+POST {{url}}/userInfoApi/insert
+Content-Type: application/json
+
+{
+  "name":"不笑猫",
+  "bStatus":1
+}
+
+###
+
+#getById
+POST {{url}}/userInfoApi/getById
+Content-Type: application/json
+
+{
+  "id":1
+}
+
+###
