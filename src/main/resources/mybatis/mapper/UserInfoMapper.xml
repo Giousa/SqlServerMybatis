@@ -8,15 +8,8 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,name,b_status
-    </sql>
-
-    <sql id="Set_Column">
-        <set>
-            <if test="id != null">`id`=#{id},</if>
-            <if test="name != null">`name`=#{name},</if>
-            <if test="bStatus != null">`b_status`=#{bStatus}</if>
-        </set>
+        id
+        ,name,b_status
     </sql>
 
     <sql id="Set_Column_Left">
@@ -56,7 +49,7 @@
 
     <select id="getById" resultMap="ResultMap">
         SELECT
-        <include refid="Base_Column_List" />
+        <include refid="Base_Column_List"/>
         FROM t_baby
         WHERE id = #{id}
     </select>

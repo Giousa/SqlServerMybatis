@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.giousa.sqlservermybatis.core.mapper.TBabyMapper">
+	<resultMap id="ResultMap" type="com.giousa.sqlservermybatis.core.model.TBabyDO">
+			<result column="id" property="id" />
+			<result column="area_id" property="areaId" />
+			<result column="h_id" property="hId" />
+			<result column="name" property="name" />
+			<result column="sex" property="sex" />
+			<result column="birth" property="birth" />
+			<result column="isEchocardiography" property="isEchocardiography" />
+			<result column="number" property="number" />
+			<result column="mother" property="mother" />
+			<result column="card_type" property="cardType" />
+			<result column="ma_idcart" property="maIdcart" />
+			<result column="nation" property="nation" />
+			<result column="city" property="city" />
+			<result column="address1" property="address1" />
+			<result column="address" property="address" />
+			<result column="guardian" property="guardian" />
+			<result column="mobile" property="mobile" />
+			<result column="tel" property="tel" />
+			<result column="guardian_t" property="guardianT" />
+			<result column="mobile_t" property="mobileT" />
+			<result column="tel_t" property="telT" />
+			<result column="guardian_s" property="guardianS" />
+			<result column="mobile_s" property="mobileS" />
+			<result column="tel_s" property="telS" />
+			<result column="mode" property="mode" />
+			<result column="createDate" property="createDate" />
+			<result column="updateDate" property="updateDate" />
+			<result column="operator_id" property="operatorId" />
+			<result column="status" property="status" />
+			<result column="agree" property="agree" />
+			<result column="step" property="step" />
+			<result column="jscode" property="jscode" />
+			<result column="jsimg" property="jsimg" />
+			<result column="additional" property="additional" />
+			<result column="followup" property="followup" />
+			<result column="followupResult" property="followupResult" />
+			<result column="deleteDate" property="deleteDate" />
+			<result column="createUser" property="createUser" />
+			<result column="updateUser" property="updateUser" />
+			<result column="deleteUser" property="deleteUser" />
+			<result column="screen_id" property="screenId" />
+			<result column="diagnosis_id" property="diagnosisId" />
+			<result column="treat_id" property="treatId" />
+			<result column="dr" property="dr" />
+			<result column="b_status" property="bStatus" />
+			<result column="issupplement" property="issupplement" />
+			<result column="problem" property="problem" />
+			<result column="isInterface" property="isInterface" />
+			<result column="interFaceId" property="interFaceId" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id,area_id,h_id,name,sex,birth,isEchocardiography,number,mother,card_type,ma_idcart,nation,city,address1,address,guardian,mobile,tel,guardian_t,mobile_t,tel_t,guardian_s,mobile_s,tel_s,mode,createDate,updateDate,operator_id,status,agree,step,jscode,jsimg,additional,followup,followupResult,deleteDate,createUser,updateUser,deleteUser,screen_id,diagnosis_id,treat_id,dr,b_status,issupplement,problem,isInterface,interFaceId
+	</sql>
+
+	<sql id="Set_Column_Left">
+			<if test="areaId != null">area_id,</if>
+			<if test="hId != null">h_id,</if>
+			<if test="name != null">name,</if>
+			<if test="sex != null">sex,</if>
+			<if test="birth != null">birth,</if>
+			<if test="isEchocardiography != null">isEchocardiography,</if>
+			<if test="number != null">number,</if>
+			<if test="mother != null">mother,</if>
+			<if test="cardType != null">card_type,</if>
+			<if test="maIdcart != null">ma_idcart,</if>
+			<if test="nation != null">nation,</if>
+			<if test="city != null">city,</if>
+			<if test="address1 != null">address1,</if>
+			<if test="address != null">address,</if>
+			<if test="guardian != null">guardian,</if>
+			<if test="mobile != null">mobile,</if>
+			<if test="tel != null">tel,</if>
+			<if test="guardianT != null">guardian_t,</if>
+			<if test="mobileT != null">mobile_t,</if>
+			<if test="telT != null">tel_t,</if>
+			<if test="guardianS != null">guardian_s,</if>
+			<if test="mobileS != null">mobile_s,</if>
+			<if test="telS != null">tel_s,</if>
+			<if test="mode != null">mode,</if>
+			<if test="createDate != null">createDate,</if>
+			<if test="updateDate != null">updateDate,</if>
+			<if test="operatorId != null">operator_id,</if>
+			<if test="status != null">status,</if>
+			<if test="agree != null">agree,</if>
+			<if test="step != null">step,</if>
+			<if test="jscode != null">jscode,</if>
+			<if test="jsimg != null">jsimg,</if>
+			<if test="additional != null">additional,</if>
+			<if test="followup != null">followup,</if>
+			<if test="followupResult != null">followupResult,</if>
+			<if test="deleteDate != null">deleteDate,</if>
+			<if test="createUser != null">createUser,</if>
+			<if test="updateUser != null">updateUser,</if>
+			<if test="deleteUser != null">deleteUser,</if>
+			<if test="screenId != null">screen_id,</if>
+			<if test="diagnosisId != null">diagnosis_id,</if>
+			<if test="treatId != null">treat_id,</if>
+			<if test="dr != null">dr,</if>
+			<if test="bStatus != null">b_status,</if>
+			<if test="issupplement != null">issupplement,</if>
+			<if test="problem != null">problem,</if>
+			<if test="isInterface != null">isInterface,</if>
+			<if test="interFaceId != null">interFaceId,</if>
+	</sql>
+
+	<sql id="Set_Column_Right">
+			<if test="areaId != null">#{areaId},</if>
+			<if test="hId != null">#{hId},</if>
+			<if test="name != null">#{name},</if>
+			<if test="sex != null">#{sex},</if>
+			<if test="birth != null">#{birth},</if>
+			<if test="isEchocardiography != null">#{isEchocardiography},</if>
+			<if test="number != null">#{number},</if>
+			<if test="mother != null">#{mother},</if>
+			<if test="cardType != null">#{cardType},</if>
+			<if test="maIdcart != null">#{maIdcart},</if>
+			<if test="nation != null">#{nation},</if>
+			<if test="city != null">#{city},</if>
+			<if test="address1 != null">#{address1},</if>
+			<if test="address != null">#{address},</if>
+			<if test="guardian != null">#{guardian},</if>
+			<if test="mobile != null">#{mobile},</if>
+			<if test="tel != null">#{tel},</if>
+			<if test="guardianT != null">#{guardianT},</if>
+			<if test="mobileT != null">#{mobileT},</if>
+			<if test="telT != null">#{telT},</if>
+			<if test="guardianS != null">#{guardianS},</if>
+			<if test="mobileS != null">#{mobileS},</if>
+			<if test="telS != null">#{telS},</if>
+			<if test="mode != null">#{mode},</if>
+			<if test="createDate != null">#{createDate},</if>
+			<if test="updateDate != null">#{updateDate},</if>
+			<if test="operatorId != null">#{operatorId},</if>
+			<if test="status != null">#{status},</if>
+			<if test="agree != null">#{agree},</if>
+			<if test="step != null">#{step},</if>
+			<if test="jscode != null">#{jscode},</if>
+			<if test="jsimg != null">#{jsimg},</if>
+			<if test="additional != null">#{additional},</if>
+			<if test="followup != null">#{followup},</if>
+			<if test="followupResult != null">#{followupResult},</if>
+			<if test="deleteDate != null">#{deleteDate},</if>
+			<if test="createUser != null">#{createUser},</if>
+			<if test="updateUser != null">#{updateUser},</if>
+			<if test="deleteUser != null">#{deleteUser},</if>
+			<if test="screenId != null">#{screenId},</if>
+			<if test="diagnosisId != null">#{diagnosisId},</if>
+			<if test="treatId != null">#{treatId},</if>
+			<if test="dr != null">#{dr},</if>
+			<if test="bStatus != null">#{bStatus},</if>
+			<if test="issupplement != null">#{issupplement},</if>
+			<if test="problem != null">#{problem},</if>
+			<if test="isInterface != null">#{isInterface},</if>
+			<if test="interFaceId != null">#{interFaceId},</if>
+	</sql>
+
+	<sql id="Set_Column_All">
+			<if test="areaId != null">area_id=#{areaId},</if>
+			<if test="hId != null">h_id=#{hId},</if>
+			<if test="name != null">name=#{name},</if>
+			<if test="sex != null">sex=#{sex},</if>
+			<if test="birth != null">birth=#{birth},</if>
+			<if test="isEchocardiography != null">isEchocardiography=#{isEchocardiography},</if>
+			<if test="number != null">number=#{number},</if>
+			<if test="mother != null">mother=#{mother},</if>
+			<if test="cardType != null">card_type=#{cardType},</if>
+			<if test="maIdcart != null">ma_idcart=#{maIdcart},</if>
+			<if test="nation != null">nation=#{nation},</if>
+			<if test="city != null">city=#{city},</if>
+			<if test="address1 != null">address1=#{address1},</if>
+			<if test="address != null">address=#{address},</if>
+			<if test="guardian != null">guardian=#{guardian},</if>
+			<if test="mobile != null">mobile=#{mobile},</if>
+			<if test="tel != null">tel=#{tel},</if>
+			<if test="guardianT != null">guardian_t=#{guardianT},</if>
+			<if test="mobileT != null">mobile_t=#{mobileT},</if>
+			<if test="telT != null">tel_t=#{telT},</if>
+			<if test="guardianS != null">guardian_s=#{guardianS},</if>
+			<if test="mobileS != null">mobile_s=#{mobileS},</if>
+			<if test="telS != null">tel_s=#{telS},</if>
+			<if test="mode != null">mode=#{mode},</if>
+			<if test="createDate != null">createDate=#{createDate},</if>
+			<if test="updateDate != null">updateDate=#{updateDate},</if>
+			<if test="operatorId != null">operator_id=#{operatorId},</if>
+			<if test="status != null">status=#{status},</if>
+			<if test="agree != null">agree=#{agree},</if>
+			<if test="step != null">step=#{step},</if>
+			<if test="jscode != null">jscode=#{jscode},</if>
+			<if test="jsimg != null">jsimg=#{jsimg},</if>
+			<if test="additional != null">additional=#{additional},</if>
+			<if test="followup != null">followup=#{followup},</if>
+			<if test="followupResult != null">followupResult=#{followupResult},</if>
+			<if test="deleteDate != null">deleteDate=#{deleteDate},</if>
+			<if test="createUser != null">createUser=#{createUser},</if>
+			<if test="updateUser != null">updateUser=#{updateUser},</if>
+			<if test="deleteUser != null">deleteUser=#{deleteUser},</if>
+			<if test="screenId != null">screen_id=#{screenId},</if>
+			<if test="diagnosisId != null">diagnosis_id=#{diagnosisId},</if>
+			<if test="treatId != null">treat_id=#{treatId},</if>
+			<if test="dr != null">dr=#{dr},</if>
+			<if test="bStatus != null">b_status=#{bStatus},</if>
+			<if test="issupplement != null">issupplement=#{issupplement},</if>
+			<if test="problem != null">problem=#{problem},</if>
+			<if test="isInterface != null">isInterface=#{isInterface},</if>
+			<if test="interFaceId != null">interFaceId=#{interFaceId},</if>
+	</sql>
+
+	<sql id="Page_Query">
+		<where>
+			<if test="areaId != null">
+				AND area_id = #{areaId}
+			</if>
+			<if test="hId != null">
+				AND h_id = #{hId}
+			</if>
+			<if test="name != null">
+				AND name = #{name}
+			</if>
+			<if test="sex != null">
+				AND sex = #{sex}
+			</if>
+			<if test="birth != null">
+				AND birth = #{birth}
+			</if>
+			<if test="isEchocardiography != null">
+				AND isEchocardiography = #{isEchocardiography}
+			</if>
+			<if test="number != null">
+				AND number = #{number}
+			</if>
+			<if test="mother != null">
+				AND mother = #{mother}
+			</if>
+			<if test="cardType != null">
+				AND card_type = #{cardType}
+			</if>
+			<if test="maIdcart != null">
+				AND ma_idcart = #{maIdcart}
+			</if>
+			<if test="nation != null">
+				AND nation = #{nation}
+			</if>
+			<if test="city != null">
+				AND city = #{city}
+			</if>
+			<if test="address1 != null">
+				AND address1 = #{address1}
+			</if>
+			<if test="address != null">
+				AND address = #{address}
+			</if>
+			<if test="guardian != null">
+				AND guardian = #{guardian}
+			</if>
+			<if test="mobile != null">
+				AND mobile = #{mobile}
+			</if>
+			<if test="tel != null">
+				AND tel = #{tel}
+			</if>
+			<if test="guardianT != null">
+				AND guardian_t = #{guardianT}
+			</if>
+			<if test="mobileT != null">
+				AND mobile_t = #{mobileT}
+			</if>
+			<if test="telT != null">
+				AND tel_t = #{telT}
+			</if>
+			<if test="guardianS != null">
+				AND guardian_s = #{guardianS}
+			</if>
+			<if test="mobileS != null">
+				AND mobile_s = #{mobileS}
+			</if>
+			<if test="telS != null">
+				AND tel_s = #{telS}
+			</if>
+			<if test="mode != null">
+				AND mode = #{mode}
+			</if>
+			<if test="createDate != null">
+				AND createDate = #{createDate}
+			</if>
+			<if test="updateDate != null">
+				AND updateDate = #{updateDate}
+			</if>
+			<if test="operatorId != null">
+				AND operator_id = #{operatorId}
+			</if>
+			<if test="status != null">
+				AND status = #{status}
+			</if>
+			<if test="agree != null">
+				AND agree = #{agree}
+			</if>
+			<if test="step != null">
+				AND step = #{step}
+			</if>
+			<if test="jscode != null">
+				AND jscode = #{jscode}
+			</if>
+			<if test="jsimg != null">
+				AND jsimg = #{jsimg}
+			</if>
+			<if test="additional != null">
+				AND additional = #{additional}
+			</if>
+			<if test="followup != null">
+				AND followup = #{followup}
+			</if>
+			<if test="followupResult != null">
+				AND followupResult = #{followupResult}
+			</if>
+			<if test="deleteDate != null">
+				AND deleteDate = #{deleteDate}
+			</if>
+			<if test="createUser != null">
+				AND createUser = #{createUser}
+			</if>
+			<if test="updateUser != null">
+				AND updateUser = #{updateUser}
+			</if>
+			<if test="deleteUser != null">
+				AND deleteUser = #{deleteUser}
+			</if>
+			<if test="screenId != null">
+				AND screen_id = #{screenId}
+			</if>
+			<if test="diagnosisId != null">
+				AND diagnosis_id = #{diagnosisId}
+			</if>
+			<if test="treatId != null">
+				AND treat_id = #{treatId}
+			</if>
+			<if test="dr != null">
+				AND dr = #{dr}
+			</if>
+			<if test="bStatus != null">
+				AND b_status = #{bStatus}
+			</if>
+			<if test="issupplement != null">
+				AND issupplement = #{issupplement}
+			</if>
+			<if test="problem != null">
+				AND problem = #{problem}
+			</if>
+			<if test="isInterface != null">
+				AND isInterface = #{isInterface}
+			</if>
+			<if test="interFaceId != null">
+				AND interFaceId = #{interFaceId}
+			</if>
+		</where>
+	</sql>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.giousa.sqlservermybatis.core.model.TBabyDO">
+		insert into t_baby 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+            <include refid="Set_Column_Left"/>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <include refid="Set_Column_Right"/>
+        </trim>
+		
+	</insert>
+
+	<update id="update" parameterType="com.giousa.sqlservermybatis.core.model.TBabyDO">
+		UPDATE t_baby
+		<set>
+            <include refid="Set_Column_All"/>
+        </set>
+		WHERE id = #{id}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM t_baby
+		WHERE id = #{id}
+	</delete>
+
+ 	<select id="findById" resultMap="ResultMap">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM t_baby
+		WHERE id = #{id}
+	</select>
+
+	<select id="countPageQuery" resultType="java.lang.Integer">
+		SELECT COUNT(1)
+		FROM t_baby
+		<include refid="Page_Query"/>
+	</select>
+
+	<select id="pageQuery" resultMap="ResultMap">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM t_baby
+		<include refid="Page_Query"/>
+		ORDER BY create_dt DESC
+		LIMIT #{offset},#{size}
+	</select>
+
+	<select id="findByBaseReq" resultMap="ResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_baby
+        <include refid="Page_Query"/>
+    </select>
+
+</mapper>
+
